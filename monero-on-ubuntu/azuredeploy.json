@@ -50,7 +50,7 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "OSDiskName": "MoneroOSDisk",
-    "imageSKU": "15.10",
+    "imageSKU": "14.04.4-LTS",
     "nicName": "MoneroNic",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "MoneroSubnet",
