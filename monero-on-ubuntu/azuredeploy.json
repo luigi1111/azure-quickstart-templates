@@ -22,13 +22,12 @@
     },
     "installMethod": {
       "type": "string",
-      "defaultValue": "From_Source",
+      "defaultValue": "Download_Binaries",
       "allowedValues": [
-        "Download_Binaries",
-        "From_Source"
+        "Download_Binaries"
       ],
       "metadata": {
-        "description": "Method to install Monero. Download_Binaries: download official binaries.  From_Source: official Monero repo on GitHub."
+        "description": "Method to install Monero. Download_Binaries: download official binaries"
       }
     },
     "vmSize": {
