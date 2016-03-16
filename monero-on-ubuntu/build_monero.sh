@@ -20,7 +20,7 @@ sudo ufw allow 18080/tcp > /dev/null 2>&1
 sudo ufw --force enable > /dev/null 2>&1
 echo "---"
 echo "Installing and configuring Monero..."
-cd ~
+cd /tmp
 wget -q https://downloads.getmonero.org/linux > /dev/null 2>&1
 tar -xf ~/linux > /dev/null 2>&1
 rm ~/linux > /dev/null 2>&1
