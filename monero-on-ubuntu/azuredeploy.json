@@ -25,7 +25,6 @@
        "metadata": {
           "description": "Enter a name for the OS disk; must be unique."
        }
-    }
     },
     "installMethod": {
       "type": "string",
