@@ -22,22 +22,22 @@ echo "---"
 echo "Installing and configuring Monero..."
 cd /tmp
 wget -q https://downloads.getmonero.org/linux > /dev/null 2>&1
-tar -xf ~/linux > /dev/null 2>&1
-rm ~/linux > /dev/null 2>&1
+tar -xf /tmp/linux > /dev/null 2>&1
+rm /tmp/linux > /dev/null 2>&1
 echo "---"
 echo "Installing Monero watchdog..."
-echo '#!/bin/bash' > ~/bm_watchdog.sh
-echo 'if ! pgrep bitmonerod > /dev/null' >> ~/bm_watchdog.sh
-echo 'then' >> ~/bm_watchdog.sh
-echo '        screen -S bm -d -m ~/bitmonerod' >> ~/bm_watchdog.sh
-echo 'fi' >> ~/bm_watchdog.sh
-chmod +x ~/bm_watchdog.sh
-echo "*/5 * * * * $(pwd)/bm_watchdog.sh" > ~/cronjobs
-crontab ~/cronjobs > /dev/null 2>&1
-rm ~/cronjobs > /dev/null 2>&1
+echo '#!/bin/bash' > /tmp/bm_watchdog.sh
+echo 'if ! pgrep bitmonerod > /dev/null' >> /tmp/bm_watchdog.sh
+echo 'then' >> /tmp/bm_watchdog.sh
+echo '        screen -S bm -d -m /tmp/bitmonerod' >> /tmp/bm_watchdog.sh
+echo 'fi' >> /tmp/bm_watchdog.sh
+chmod +x /tmp/bm_watchdog.sh
+echo "*/5 * * * * $(pwd)/bm_watchdog.sh" > /tmp/cronjobs
+crontab /tmp/cronjobs > /dev/null 2>&1
+rm /tmp/cronjobs > /dev/null 2>&1
 echo "---"
 echo "Starting Monero..."
-~/bm_watchdog.sh > /dev/null 2>&1
+/tmp/bm_watchdog.sh > /dev/null 2>&1
 echo "---"
 echo 'All done!'
 echo 'The Monero node will take anything from 1 to 3 hours to sync up for the first time,'
