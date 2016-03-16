@@ -20,7 +20,7 @@
           "description": "Hostname assigned to the Public IP, also used as the VM Name. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
        }
     },
-    "osDisk": {
+    "osDiskNameInp": {
        "type": "string",
        "metadata": {
           "description": "Enter a name for the OS disk; must be unique."
@@ -55,7 +55,7 @@
   "variables": {
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "OSDiskName": "MoneroOSDisk",
+    "OSDiskName": "[parameters('osDiskNameInp')]",
     "imageSKU": "14.04.4-LTS",
     "nicName": "MoneroNic",
     "addressPrefix": "10.0.0.0/16",
@@ -169,7 +169,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',parameters('osDisk'),'.vhd')]"
+              "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
