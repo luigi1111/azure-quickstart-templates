@@ -19,6 +19,13 @@
        "metadata": {
           "description": "Hostname assigned to the Public IP, also used as the VM Name. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
        }
+    }
+    "osDisk": {
+       "type": "string",
+       "metadata": {
+          "description": "Enter a name for the OS disk; must be unique."
+       }
+    }
     },
     "installMethod": {
       "type": "string",
@@ -163,7 +170,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+              "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',parameters('osDisk'),'.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
